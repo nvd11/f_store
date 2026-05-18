@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0">
   <diagram id="rcm_architecture" name="RCM Architecture">
-    <mxGraphModel dx="3084" dy="3942" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2336" pageHeight="1654" math="0" shadow="0">
+    <mxGraphModel dx="2203" dy="2816" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2336" pageHeight="1654" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -8,7 +8,7 @@
           <mxGeometry height="300" width="220" x="20" y="20" as="geometry" />
         </mxCell>
         <mxCell id="shp_env" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;startSize=30;fontStyle=1" value="SHP 内部企业网络 (Intranet / K8s)" vertex="1">
-          <mxGeometry height="990" width="1030" x="280" y="20" as="geometry" />
+          <mxGeometry height="990" width="1030" x="360" y="20" as="geometry" />
         </mxCell>
         <mxCell id="upstream_group" parent="shp_env" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;startSize=30;fontStyle=1" value="内网特殊数据源 API 集合 (Non-RC)" vertex="1">
           <mxGeometry height="340" width="200" x="820" y="40" as="geometry" />
@@ -31,34 +31,17 @@
         <mxCell id="cmlp" parent="shp_env" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#b0e3e6;strokeColor=#0e8088;fontStyle=1" value="CMLP Machine Learning&#xa;(AI Model Training &amp; Exec)" vertex="1">
           <mxGeometry height="80" width="200" x="770" y="590" as="geometry" />
         </mxCell>
-        <mxCell id="e8" edge="1" parent="1" source="rcdp_non_rc_group" target="cmlp" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" value="暴露特征数据">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="800" y="610" />
-              <mxPoint x="800" y="610" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="vendor" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Vendor&#xa;(Regroom / Cube)" vertex="1">
-          <mxGeometry height="60" width="160" x="50" y="80" as="geometry" />
-        </mxCell>
-        <mxCell id="rapid2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1" value="Rapid2&#xa;(RCM 核心系统)" vertex="1">
-          <mxGeometry height="60" width="160" x="50" y="200" as="geometry" />
-        </mxCell>
-        <mxCell id="ext_gw" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1" value="SHP External Gateway&#xa;(企业全局网关)" vertex="1">
-          <mxGeometry height="60" width="160" x="320" y="200" as="geometry" />
-        </mxCell>
-        <mxCell id="rcdp" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#bac8d3;strokeColor=#23445d;startSize=30;fontStyle=1" value="RCDP Data Platform" vertex="1">
-          <mxGeometry height="280" width="460" x="310" y="460" as="geometry" />
+        <mxCell id="rcdp" parent="shp_env" style="swimlane;whiteSpace=wrap;html=1;fillColor=#bac8d3;strokeColor=#23445d;startSize=30;fontStyle=1" value="RCDP Data Platform" vertex="1">
+          <mxGeometry height="510" width="460" x="90" y="440" as="geometry" />
         </mxCell>
         <mxCell id="rcdp_alert" parent="rcdp" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Alert Table" vertex="1">
           <mxGeometry height="60" width="100" x="20" y="60" as="geometry" />
         </mxCell>
         <mxCell id="rcdp_recomm" parent="rcdp" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Recomm. Table&#xa;(Output)" vertex="1">
-          <mxGeometry height="60" width="100" x="20" y="180" as="geometry" />
+          <mxGeometry height="60" width="100" x="20" y="410" as="geometry" />
         </mxCell>
         <mxCell id="rcdp_non_rc_group" parent="rcdp" style="swimlane;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;startSize=30;fontStyle=1" value="Non-RC 表集合" vertex="1">
-          <mxGeometry height="220" width="180" x="250" y="40" as="geometry" />
+          <mxGeometry height="220" width="180" x="200" y="130" as="geometry" />
         </mxCell>
         <mxCell id="rcdp_pmgs" parent="rcdp_non_rc_group" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#ffe6cc;strokeColor=#d79b00;" value="PMGS Table&#xa;(Non-RC)" vertex="1">
           <mxGeometry height="50" width="100" x="40" y="40" as="geometry" />
@@ -69,13 +52,47 @@
         <mxCell id="rcdp_clarity" parent="rcdp_non_rc_group" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Clarity Table&#xa;(Non-RC)" vertex="1">
           <mxGeometry height="50" width="100" x="40" y="160" as="geometry" />
         </mxCell>
-        <mxCell id="edge_rcdp_join1" edge="1" parent="rcdp" source="rcdp_alert" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=none;endFill=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="rcdp_non_rc_group" value="Join 外键">
+        <mxCell id="e9" edge="1" parent="shp_env" source="cmlp" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.45;exitY=1.011;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;exitPerimeter=0;" target="rcdp_recomm" value="产出 Recommendation">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="180" y="90" />
-              <mxPoint x="180" y="150" />
+              <mxPoint x="860" y="880" />
             </Array>
           </mxGeometry>
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="shp_env" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.003;entryY=0.51;entryDx=0;entryDy=0;endArrow=none;endFill=0;startArrow=classic;startFill=1;entryPerimeter=0;" target="cmlp" value="fetch data">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="520" y="630" />
+            </Array>
+            <mxPoint x="470" y="630" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="shp_env" source="rcdp_non_rc_group" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#10739e;fontColor=#10739e;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" target="upstream_group" value="内网直连拉取&amp;nbsp;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="380" y="295" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ext_gw" parent="shp_env" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1" value="SHP External Gateway&#xa;(企业全局网关)" vertex="1">
+          <mxGeometry height="60" width="160" x="-70" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="shp_env" source="ext_gw" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" target="proxy_api" value="透明路由">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_rcdp_join1" edge="1" parent="shp_env" source="rcdp_alert" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;entryX=0.4;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="cmlp" value="model input">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="850" y="530" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vendor" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Vendor&#xa;(Regroom / Cube)" vertex="1">
+          <mxGeometry height="60" width="160" x="50" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="rapid2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1" value="Rapid2&#xa;(RCM 核心系统)" vertex="1">
+          <mxGeometry height="60" width="160" x="50" y="200" as="geometry" />
         </mxCell>
         <mxCell id="e1" edge="1" parent="1" source="vendor" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" target="rapid2" value="Regulator Alert">
           <mxGeometry relative="1" as="geometry" />
@@ -83,40 +100,20 @@
         <mxCell id="e2" edge="1" parent="1" source="rapid2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" target="ext_gw" value="跨网 API 请求">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e3" edge="1" parent="1" source="ext_gw" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" target="proxy_api" value="透明路由">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e11" edge="1" parent="1" source="rcdp" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#10739e;fontColor=#10739e;exitX=0.8;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="upstream_group" value="内网直连拉取 (Train Model 流)">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="688" y="420" />
-              <mxPoint x="920" y="420" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
         <mxCell id="e7" edge="1" parent="1" source="rapid2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="rcdp_alert" value="Alert Data">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="130" y="530" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="e9" edge="1" parent="1" source="cmlp" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="rcdp_recomm" value="产出 Recommendation">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="800" y="670" />
-              <mxPoint x="800" y="670" />
+              <mxPoint x="130" y="550" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="e10" edge="1" parent="1" source="rcdp_recomm" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" target="rapid2" value="Dataflow 回传">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="90" y="650" />
+              <mxPoint x="90" y="900" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <!-- Replaced multiple lines with one e8 above -->
       </root>
     </mxGraphModel>
   </diagram>

@@ -31,7 +31,7 @@
         <mxCell id="cmlp" parent="shp_env" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1" value="CMLP model exec env" vertex="1">
           <mxGeometry height="80" width="200" x="770" y="590" as="geometry" />
         </mxCell>
-        <mxCell id="rcdp" parent="shp_env" style="swimlane;whiteSpace=wrap;html=1;fillColor=#bac8d3;strokeColor=#23445d;startSize=30;fontStyle=1" value="RCDP Data Platform" vertex="1">
+        <mxCell id="rcdp" parent="shp_env" style="swimlane;whiteSpace=wrap;html=1;fillColor=#bac8d3;strokeColor=#23445d;startSize=30;fontStyle=1" value="RCDP Data Platform (GCP VPC Peering to On-Prem)" vertex="1">
           <mxGeometry height="510" width="460" x="90" y="440" as="geometry" />
         </mxCell>
         <mxCell id="rcdp_alert" parent="rcdp" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Alert Table" vertex="1">

@@ -4,13 +4,13 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="aws_env" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;startSize=30;fontStyle=1" value="AWS 外网沙盒环境 (External Cloud)" vertex="1">
+        <mxCell id="aws_env" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;startSize=30;fontStyle=1" value="AWS Sandbox Env (External Cloud)" vertex="1">
           <mxGeometry height="300" width="220" x="20" y="20" as="geometry" />
         </mxCell>
-        <mxCell id="shp_env" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;startSize=30;fontStyle=1" value="SHP 内部企业网络 (Intranet / K8s)" vertex="1">
+        <mxCell id="shp_env" parent="1" style="swimlane;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;startSize=30;fontStyle=1" value="SHP Enterprise Network (Intranet / K8s)" vertex="1">
           <mxGeometry height="990" width="1030" x="360" y="20" as="geometry" />
         </mxCell>
-        <mxCell id="upstream_group" parent="shp_env" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;startSize=30;fontStyle=1" value="内网特殊数据源 API 集合 (Non-RC)" vertex="1">
+        <mxCell id="upstream_group" parent="shp_env" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;startSize=30;fontStyle=1" value="Internal API Sources (Non-RC)" vertex="1">
           <mxGeometry height="340" width="200" x="820" y="40" as="geometry" />
         </mxCell>
         <mxCell id="pmgs" parent="upstream_group" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#f8cecc;strokeColor=#b85450;" value="PMGS API&#xa;(Project Mgmt)" vertex="1">
@@ -22,10 +22,10 @@
         <mxCell id="clarity" parent="upstream_group" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#f8cecc;strokeColor=#b85450;" value="Clarity API&#xa;(Portfolio Mgmt)" vertex="1">
           <mxGeometry height="60" width="140" x="30" y="250" as="geometry" />
         </mxCell>
-        <mxCell id="proxy_api" parent="shp_env" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;strokeWidth=3" value="RCM Proxy API&#xa;(SHP K8s 安全摆渡人)" vertex="1">
+        <mxCell id="proxy_api" parent="shp_env" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;strokeWidth=3" value="RCM Proxy API&#xa;(SHP K8s Edge Proxy)" vertex="1">
           <mxGeometry height="60" width="160" x="360" y="180" as="geometry" />
         </mxCell>
-        <mxCell id="e5" edge="1" parent="shp_env" source="proxy_api" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="upstream_group" value="流式安全代理 (Proxy to Non-RC APIs)">
+        <mxCell id="e5" edge="1" parent="shp_env" source="proxy_api" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="upstream_group" value="Stream Proxying (To Non-RC APIs)">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="cmlp" parent="shp_env" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#b0e3e6;strokeColor=#0e8088;fontStyle=1" value="CMLP Machine Learning&#xa;(AI Model Training &amp; Exec)" vertex="1">
@@ -40,7 +40,7 @@
         <mxCell id="rcdp_recomm" parent="rcdp" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Recomm. Table&#xa;(Output)" vertex="1">
           <mxGeometry height="60" width="100" x="20" y="410" as="geometry" />
         </mxCell>
-        <mxCell id="rcdp_non_rc_group" parent="rcdp" style="swimlane;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;startSize=30;fontStyle=1" value="Non-RC 表集合" vertex="1">
+        <mxCell id="rcdp_non_rc_group" parent="rcdp" style="swimlane;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;startSize=30;fontStyle=1" value="Non-RC Tables" vertex="1">
           <mxGeometry height="220" width="180" x="200" y="130" as="geometry" />
         </mxCell>
         <mxCell id="rcdp_pmgs" parent="rcdp_non_rc_group" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#ffe6cc;strokeColor=#d79b00;" value="PMGS Table&#xa;(Non-RC)" vertex="1">
@@ -52,14 +52,14 @@
         <mxCell id="rcdp_clarity" parent="rcdp_non_rc_group" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Clarity Table&#xa;(Non-RC)" vertex="1">
           <mxGeometry height="50" width="100" x="40" y="160" as="geometry" />
         </mxCell>
-        <mxCell id="e9" edge="1" parent="shp_env" source="cmlp" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.45;exitY=1.011;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;exitPerimeter=0;" target="rcdp_recomm" value="产出 Recommendation">
+        <mxCell id="e9" edge="1" parent="shp_env" source="cmlp" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.45;exitY=1.011;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;exitPerimeter=0;" target="rcdp_recomm" value="Produce Recommendation">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="860" y="880" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="e8" edge="1" parent="shp_env" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.003;entryY=0.51;entryDx=0;entryDy=0;endArrow=none;endFill=0;startArrow=classic;startFill=1;entryPerimeter=0;" target="cmlp" value="fetch data">
+        <mxCell id="e8_new" edge="1" parent="shp_env" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.003;entryY=0.51;entryDx=0;entryDy=0;endArrow=none;endFill=0;startArrow=classic;startFill=1;entryPerimeter=0;" target="cmlp" value="Fetch Data">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="520" y="630" />
@@ -67,7 +67,7 @@
             <mxPoint x="470" y="630" as="sourcePoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="e11" edge="1" parent="shp_env" source="rcdp_non_rc_group" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#10739e;fontColor=#10739e;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" target="upstream_group" value="内网直连拉取&amp;nbsp;">
+        <mxCell id="e11" edge="1" parent="shp_env" source="rcdp_non_rc_group" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#10739e;fontColor=#10739e;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" target="upstream_group" value="Internal Direct Fetch (Train Model)">
           <mxGeometry relative="1" as="geometry">
             <mxPoint as="offset" />
             <Array as="points">
@@ -75,13 +75,13 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="ext_gw" parent="shp_env" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1" value="SHP External Gateway&#xa;(企业全局网关)" vertex="1">
+        <mxCell id="ext_gw" parent="shp_env" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1" value="SHP External Gateway&#xa;(Enterprise GW)" vertex="1">
           <mxGeometry height="60" width="160" x="-70" y="180" as="geometry" />
         </mxCell>
-        <mxCell id="e3" edge="1" parent="shp_env" source="ext_gw" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" target="proxy_api" value="透明路由">
+        <mxCell id="e3" edge="1" parent="shp_env" source="ext_gw" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" target="proxy_api" value="Transparent Routing">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="edge_rcdp_join1" edge="1" parent="shp_env" source="rcdp_alert" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;entryX=0.4;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="cmlp" value="model input">
+        <mxCell id="edge_rcdp_join1" edge="1" parent="shp_env" source="rcdp_alert" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;entryX=0.4;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="cmlp" value="Model Input">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="850" y="530" />
@@ -91,13 +91,13 @@
         <mxCell id="vendor" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Vendor&#xa;(Regroom / Cube)" vertex="1">
           <mxGeometry height="60" width="160" x="50" y="80" as="geometry" />
         </mxCell>
-        <mxCell id="rapid2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1" value="Rapid2&#xa;(RCM 核心系统)" vertex="1">
+        <mxCell id="rapid2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1" value="Rapid2&#xa;(RCM Core System)" vertex="1">
           <mxGeometry height="60" width="160" x="50" y="200" as="geometry" />
         </mxCell>
         <mxCell id="e1" edge="1" parent="1" source="vendor" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" target="rapid2" value="Regulator Alert">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e2" edge="1" parent="1" source="rapid2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" target="ext_gw" value="跨网 API 请求">
+        <mxCell id="e2" edge="1" parent="1" source="rapid2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" target="ext_gw" value="Cross-Network API Request">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="e7" edge="1" parent="1" source="rapid2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="rcdp_alert" value="Alert Data">
@@ -107,7 +107,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="e10" edge="1" parent="1" source="rcdp_recomm" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" target="rapid2" value="Dataflow 回传">
+        <mxCell id="e10" edge="1" parent="1" source="rcdp_recomm" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" target="rapid2" value="Dataflow Pipeline Return">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="90" y="900" />

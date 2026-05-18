@@ -1,4 +1,4 @@
-<mxfile host="Electron" modified="2026-05-18T18:35:00.000Z" agent="Mozilla/5.0" version="22.0.4" type="device">
+<mxfile host="Electron" modified="2026-05-18T18:40:00.000Z" agent="Mozilla/5.0" version="22.0.4" type="device">
   <diagram id="rcm_architecture" name="RCM Architecture">
     <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
@@ -7,45 +7,80 @@
 
         <!-- Containers -->
         <mxCell id="aws_env" value="AWS 外网沙盒环境 (External Cloud)" style="swimlane;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;startSize=30;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="40" y="40" width="240" height="300" as="geometry" />
+          <mxGeometry x="20" y="20" width="220" height="300" as="geometry" />
         </mxCell>
         <mxCell id="shp_env" value="SHP 内部企业网络 (Intranet / K8s)" style="swimlane;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;startSize=30;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="360" y="40" width="700" height="500" as="geometry" />
+          <mxGeometry x="280" y="20" width="820" height="740" as="geometry" />
         </mxCell>
 
-        <!-- Nodes -->
+        <!-- AWS Nodes -->
         <mxCell id="vendor" value="Vendor&#10;(Regroom / Cube)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
-          <mxGeometry x="80" y="100" width="160" height="60" as="geometry" />
+          <mxGeometry x="50" y="80" width="160" height="60" as="geometry" />
         </mxCell>
         <mxCell id="rapid2" value="Rapid2&#10;(RCM 核心系统)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="80" y="220" width="160" height="60" as="geometry" />
+          <mxGeometry x="50" y="200" width="160" height="60" as="geometry" />
         </mxCell>
 
+        <!-- Gateway & Proxy -->
         <mxCell id="ext_gw" value="SHP External Gateway&#10;(企业全局网关)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="400" y="220" width="160" height="60" as="geometry" />
+          <mxGeometry x="320" y="200" width="160" height="60" as="geometry" />
         </mxCell>
         <mxCell id="proxy_api" value="RCM Proxy API&#10;(SHP K8s 安全摆渡人)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;strokeWidth=3" vertex="1" parent="1">
-          <mxGeometry x="640" y="220" width="160" height="60" as="geometry" />
+          <mxGeometry x="560" y="200" width="160" height="60" as="geometry" />
         </mxCell>
 
-        <mxCell id="pmgs" value="PMGS&#10;(Project Mgmt)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
-          <mxGeometry x="880" y="100" width="140" height="60" as="geometry" />
+        <!-- Upstream Data APIs -->
+        <mxCell id="pmgs" value="PMGS API&#10;(Project Mgmt)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="840" y="80" width="140" height="60" as="geometry" />
         </mxCell>
         <mxCell id="hr" value="HR Data API&#10;(Human Resources)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
-          <mxGeometry x="880" y="220" width="140" height="60" as="geometry" />
+          <mxGeometry x="840" y="200" width="140" height="60" as="geometry" />
         </mxCell>
         <mxCell id="clarity" value="Clarity API&#10;(Portfolio Mgmt)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
-          <mxGeometry x="880" y="340" width="140" height="60" as="geometry" />
+          <mxGeometry x="840" y="320" width="140" height="60" as="geometry" />
         </mxCell>
 
-        <mxCell id="rcdp" value="RCDP Data Platform&#10;(Alerts, Special Data, Output)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#bac8d3;strokeColor=#23445d;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="400" y="420" width="240" height="80" as="geometry" />
+        <!-- RCDP Data Platform Container -->
+        <mxCell id="rcdp" value="RCDP Data Platform" style="swimlane;whiteSpace=wrap;html=1;fillColor=#bac8d3;strokeColor=#23445d;startSize=30;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="320" y="440" width="460" height="280" as="geometry" />
         </mxCell>
+
+        <!-- Tables inside RCDP -->
+        <mxCell id="rcdp_alert" value="Alert Table" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="rcdp">
+          <mxGeometry x="20" y="60" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rcdp_recomm" value="Recomm. Table&#10;(Output)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="rcdp">
+          <mxGeometry x="20" y="180" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rcdp_pmgs" value="PMGS Table&#10;(Non-RC)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="rcdp">
+          <mxGeometry x="190" y="60" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rcdp_hr" value="HR Table&#10;(Non-RC)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="rcdp">
+          <mxGeometry x="320" y="60" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rcdp_clarity" value="Clarity Table&#10;(Non-RC)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="rcdp">
+          <mxGeometry x="250" y="180" width="100" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Internal RCDP Edges -->
+        <mxCell id="edge_rcdp_join1" value="Join 外键" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=none;endFill=0;" edge="1" parent="rcdp" source="rcdp_alert" target="rcdp_pmgs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_rcdp_join2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=none;endFill=0;" edge="1" parent="rcdp" source="rcdp_alert" target="rcdp_clarity">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="70" y="150" />
+              <mxPoint x="300" y="150" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- CMLP Machine Learning -->
         <mxCell id="cmlp" value="CMLP Machine Learning&#10;(AI Model Training &amp; Exec)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#b0e3e6;strokeColor=#0e8088;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="760" y="420" width="240" height="80" as="geometry" />
+          <mxGeometry x="840" y="540" width="200" height="80" as="geometry" />
         </mxCell>
 
-        <!-- Edges -->
+        <!-- External Edges -->
         <mxCell id="e1" value="Regulator Alert" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" edge="1" parent="1" source="vendor" target="rapid2">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
@@ -55,71 +90,84 @@
         <mxCell id="e3" value="透明路由" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="ext_gw" target="proxy_api">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
+
+        <!-- Proxy to APIs -->
         <mxCell id="e4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="proxy_api" target="pmgs">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="840" y="250" />
-              <mxPoint x="840" y="130" />
+              <mxPoint x="780" y="230" />
+              <mxPoint x="780" y="110" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="e5" value="内部流式代理" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="proxy_api" target="hr">
+        <mxCell id="e5" value="流式安全代理" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="proxy_api" target="hr">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="e6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;" edge="1" parent="1" source="proxy_api" target="clarity">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="840" y="250" />
-              <mxPoint x="840" y="370" />
+              <mxPoint x="780" y="230" />
+              <mxPoint x="780" y="350" />
             </Array>
           </mxGeometry>
         </mxCell>
 
-        <mxCell id="e7" value="Alert Data (业务流)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="rapid2" target="rcdp">
-          <mxGeometry relative="1" as="geometry">
+        <!-- RCDP pulling from Upstream (Direct Connections) -->
+        <mxCell id="e11" value="内网直连拉取 (Train Model 流)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#10739e;fontColor=#10739e;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="rcdp_pmgs" target="pmgs">
+          <mxGeometry x="0.1" y="-10" relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="160" y="380" />
-              <mxPoint x="460" y="380" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-
-        <mxCell id="e8" value="特征与历史数据" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="rcdp" target="cmlp">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e9" value="Recommendation" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="cmlp" target="rcdp">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-
-        <mxCell id="e10" value="Dataflow 回传" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="rcdp" target="rapid2">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="360" y="460" />
-              <mxPoint x="360" y="320" />
-              <mxPoint x="120" y="320" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-
-        <mxCell id="e11" value="内网直连拉取 (Train Model 流)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#10739e;fontColor=#10739e;exitX=0.6;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="rcdp" target="pmgs">
-          <mxGeometry x="0.5" y="15" relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="544" y="145" />
+              <mxPoint x="560" y="110" />
             </Array>
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="e12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#10739e;fontColor=#10739e;exitX=0.6;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="rcdp" target="hr">
+        <mxCell id="e12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#10739e;fontColor=#10739e;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="rcdp_hr" target="hr">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="544" y="265" />
+              <mxPoint x="690" y="230" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="e13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#10739e;fontColor=#10739e;exitX=0.6;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="rcdp" target="clarity">
+        <mxCell id="e13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#10739e;fontColor=#10739e;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="rcdp_clarity" target="clarity">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="544" y="385" />
+              <mxPoint x="800" y="650" />
+              <mxPoint x="800" y="350" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Rapid2 to RCDP Alert -->
+        <mxCell id="e7" value="Alert Data" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="rapid2" target="rcdp_alert">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="130" y="530" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- CMLP Integration -->
+        <mxCell id="e8" value="暴露特征数据" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="rcdp_pmgs" target="cmlp">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="890" y="530" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e9" value="产出 Recommendation" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="cmlp" target="rcdp_recomm">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="800" y="580" />
+              <mxPoint x="800" y="650" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Dataflow Feedback -->
+        <mxCell id="e10" value="Dataflow 回传" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="rcdp_recomm" target="rapid2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="90" y="650" />
             </Array>
           </mxGeometry>
         </mxCell>

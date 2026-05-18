@@ -31,11 +31,11 @@
         <mxCell id="cmlp" parent="shp_env" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#b0e3e6;strokeColor=#0e8088;fontStyle=1" value="CMLP Machine Learning&#xa;(AI Model Training &amp; Exec)" vertex="1">
           <mxGeometry height="80" width="200" x="770" y="590" as="geometry" />
         </mxCell>
-        <mxCell id="e8" edge="1" parent="1" source="rcdp_pmgs" target="cmlp" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" value="暴露特征数据">
+        <mxCell id="e8" edge="1" parent="1" source="rcdp_non_rc_group" target="cmlp" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" value="暴露特征数据">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="800" y="550" />
-              <mxPoint x="800" y="630" />
+              <mxPoint x="800" y="610" />
+              <mxPoint x="800" y="610" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -57,25 +57,24 @@
         <mxCell id="rcdp_recomm" parent="rcdp" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Recomm. Table&#xa;(Output)" vertex="1">
           <mxGeometry height="60" width="100" x="20" y="180" as="geometry" />
         </mxCell>
-        <mxCell id="rcdp_pmgs" parent="rcdp" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#ffe6cc;strokeColor=#d79b00;" value="PMGS Table&#xa;(Non-RC)" vertex="1">
-          <mxGeometry height="60" width="100" x="250" y="60" as="geometry" />
+        <mxCell id="rcdp_non_rc_group" parent="rcdp" style="swimlane;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;startSize=30;fontStyle=1" value="Non-RC 表集合" vertex="1">
+          <mxGeometry height="220" width="180" x="250" y="40" as="geometry" />
         </mxCell>
-        <mxCell id="rcdp_hr" parent="rcdp" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#ffe6cc;strokeColor=#d79b00;" value="HR Table&#xa;(Non-RC)" vertex="1">
-          <mxGeometry height="60" width="100" x="330" y="120" as="geometry" />
+        <mxCell id="rcdp_pmgs" parent="rcdp_non_rc_group" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#ffe6cc;strokeColor=#d79b00;" value="PMGS Table&#xa;(Non-RC)" vertex="1">
+          <mxGeometry height="50" width="100" x="40" y="40" as="geometry" />
         </mxCell>
-        <mxCell id="rcdp_clarity" parent="rcdp" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Clarity Table&#xa;(Non-RC)" vertex="1">
-          <mxGeometry height="60" width="100" x="220" y="130" as="geometry" />
+        <mxCell id="rcdp_hr" parent="rcdp_non_rc_group" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#ffe6cc;strokeColor=#d79b00;" value="HR Table&#xa;(Non-RC)" vertex="1">
+          <mxGeometry height="50" width="100" x="40" y="100" as="geometry" />
         </mxCell>
-        <mxCell id="edge_rcdp_join1" edge="1" parent="rcdp" source="rcdp_alert" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=none;endFill=0;" target="rcdp_pmgs" value="Join 外键">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="rcdp_clarity" parent="rcdp_non_rc_group" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Clarity Table&#xa;(Non-RC)" vertex="1">
+          <mxGeometry height="50" width="100" x="40" y="160" as="geometry" />
         </mxCell>
-        <mxCell id="edge_rcdp_join2" edge="1" parent="rcdp" source="rcdp_alert" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=none;endFill=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="rcdp_clarity" value="">
+        <mxCell id="edge_rcdp_join1" edge="1" parent="rcdp" source="rcdp_alert" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=none;endFill=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="rcdp_non_rc_group" value="Join 外键">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="70" y="150" />
-              <mxPoint x="220" y="150" />
+              <mxPoint x="180" y="90" />
+              <mxPoint x="180" y="150" />
             </Array>
-            <mxPoint x="-10" y="350" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="e1" edge="1" parent="1" source="vendor" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" target="rapid2" value="Regulator Alert">
@@ -117,15 +116,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="R4HB6kozTw_twWb8WWxk-2" edge="1" parent="1" source="rcdp_hr" target="cmlp" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" value="暴露特征数据">
-          <mxGeometry relative="1" x="0.0006" as="geometry">
-            <mxPoint as="offset" />
-            <Array as="points">
-              <mxPoint x="800" y="610" />
-              <mxPoint x="800" y="650" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
+        <!-- Replaced multiple lines with one e8 above -->
       </root>
     </mxGraphModel>
   </diagram>
